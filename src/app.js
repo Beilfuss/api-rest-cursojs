@@ -22,7 +22,7 @@ class App {
   middlewares() {
     this.app.use(express.urlencoded({ extended: true }));
     this.app.use(express.json());
-    this.app.use(express.static(resolve(__dirname, 'uploads'))); // define o diretório de arquivos estáticos
+    this.app.use(express.static(resolve(__dirname, '..', 'uploads', 'images'))); // define o diretório de arquivos estáticos
   }
 
   routes() {
