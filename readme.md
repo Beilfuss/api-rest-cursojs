@@ -4,6 +4,7 @@ Projeto de API REST de uma escola construído no curso de Javascript e TypeScrip
 
 ## Tecnologias praticadas neste projeto
 
+- Git;
 - Eslint;
 - Nodemon;
 - Sucrase;
