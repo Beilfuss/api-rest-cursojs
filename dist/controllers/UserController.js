@@ -41,7 +41,11 @@ class UserController {
   // Update
   async update(req, res) {
     try{
-      const user = await _User2.default.findByPk(req.userId); // busca o usuário pelo id passado na URL
+      const { id } = req.params; // pega o id passado na URL
+
+      const user = await _User2.default.findByPk(id); // busca o usuário pelo id passado na URL
+
+      console.log('USER QUE CHEGOU', user);
 
       if(!user) {
         return res.status(400).json({ // retorna um erro se o usuário não for encontrado
@@ -51,9 +55,9 @@ class UserController {
 
       const novosDados = await user.update(req.body); // atualiza o usuário com os dados passados no corpo da requisição
 
-      const { id, nome, email } = novosDados;
+      const { id: userId, nome, email } = novosDados;
 
-      return res.json({ id, nome, email });
+      return res.json({ id: userId, nome, email });
 
     } catch (e) {
       return res.status(400).json({
@@ -65,7 +69,9 @@ class UserController {
   // Delete
   async delete(req, res) {
     try{
-      const user = await _User2.default.findByPk(req.userId); // busca o usuário pelo id passado na URL
+      const { id } = req.params; // pega o id passado na URL
+
+      const user = await _User2.default.findByPk(id); // busca o usuário pelo id passado na URL
 
       if(!user) {
         return res.status(400).json({ // retorna um erro se o usuário não for encontrado

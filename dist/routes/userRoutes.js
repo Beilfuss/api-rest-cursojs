@@ -9,7 +9,7 @@ const router = new (0, _express.Router)();
 // router.get('/:id', userController.show); // "show" porque é o método que mostra um usuário específico
 
 router.post('/', _UserController2.default.store); // "store" porque é o método que cria um novo usuário (poderia ser '"create" também)
-router.put('/', _loginRequired2.default, _UserController2.default.update); // "update" porque é o método que atualiza um usuário
-router.delete('/', _loginRequired2.default, _UserController2.default.delete); // "delete" porque é o método que deleta um usuário
+router.put('/:id', _loginRequired2.default, _UserController2.default.update); // "update" porque é o método que atualiza um usuário
+router.delete('/:id', _loginRequired2.default, _UserController2.default.delete); // "delete" porque é o método que deleta um usuário
 
 exports. default = router;
